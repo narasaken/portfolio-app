@@ -7,10 +7,30 @@ import News from "./assets/News List.png";
 import Todo from "./assets/To Do.png";
 
 function App() {
+
+  function handleDownload() {
+    const fileUrl = 'https://www.dropbox.com/s/3alpbnj76x4xw72/CV.pdf?dl=0'; 
+    const link = document.createElement('a');
+    link.href = fileUrl;
+    link.target = '_blank';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+  function linkedinButton() {
+    const fileUrl = 'https://www.linkedin.com/in/nazirasaken/'; 
+    const link = document.createElement('a');
+    link.href = fileUrl;
+    link.target = '_blank';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
   return (
     <>
     <nav>
-      <h2>Nazira Saken</h2>
+        <h2>Nazira Saken</h2>
       <ul>
         <li>
           <Link to="about" smooth={true} duration={500}>
@@ -39,7 +59,7 @@ function App() {
       <div id="start">
           <h1>Hi, I'm Nazira, <br /> I build things for the web.</h1>
           <p>I am a software developer and this is my portfolio.</p>
-          <button>Check out my CV</button>
+          <button onClick={handleDownload}>Check out my CV</button>
       </div>
       <hr />
       <Element name="about" className="section">
@@ -93,7 +113,7 @@ function App() {
           </div>
           <div className="details">
             <p>
-              Maintained communication channels between students and the Student-Staff Liaison Committee. 
+              Maintained communication channels between fellow students and the Student-Staff Liaison Committee. 
               <br/>Managed inquiries and emails and engaged in key meetings.
               <br/>Served as a spokesperson for all of the students on my course
             </p>
@@ -103,9 +123,9 @@ function App() {
       <hr />
 
       <Element name="projects" className="section">
-        <h1>Projects I've Worked On</h1>
+        
         <div className="all-projects">
-          
+          <h1>Projects I've Worked On</h1>
           <div className="project1">
             <img src={Desktop} alt="project1"/>
             <div className="project1-details">
@@ -134,15 +154,24 @@ function App() {
           </div>
         </div>
       </Element>
-
+      <hr/>
       <Element name="contacts" className="section">
-        <div>
-          <hr/>
+        <div className="contacts">
+          
           <h1>Say Hello</h1>
           <p>Loosely designed in Figma and coded in Visual Studio Code by yours truly. </p>
-          <button>Get In Touch</button>
+          <button onClick={linkedinButton}>Get In Touch</button>
         </div>
       </Element>
+      <hr/>
+
+      <footer>
+        <div className="footer">
+          <p>Made with ❤️ at nFactorial in 2022.</p>
+          <p>Credits: photos from Unsplash.com, icons from Icons8.</p>
+        </div>
+        
+      </footer>
     </>
   );
 }
